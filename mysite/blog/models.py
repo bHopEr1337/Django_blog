@@ -17,8 +17,7 @@ class Post(models.Model):
         PUBLISHED = 'PB', 'Published'
 
     title = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250,
-                            unique_for_date='publish', )
+    slug = models.SlugField(max_length=250, unique_for_date='publish')
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now())
     created = models.DateTimeField(auto_now_add=True)
