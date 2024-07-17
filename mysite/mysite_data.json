@@ -1,0 +1,1011 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2024-07-11T11:52:46.973Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Заголовок",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2024-07-11T11:52:52.988Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Заголовок",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2024-07-12T06:44:32.354Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Заголовок",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2024-07-13T15:09:54.998Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Another post",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2024-07-13T15:09:55.005Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Заголовок",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2024-07-13T15:11:20.754Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "How we should solve this problem",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2024-07-13T15:11:46.022Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Another problem is",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2024-07-13T15:12:09.197Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Many mistakes",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2024-07-13T18:49:15.860Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Super post",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2024-07-14T14:11:44.746Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Comment by Bhoper on Many mistakes",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2024-07-14T15:10:59.756Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "sanchez",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2024-07-16T11:41:31.649Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Many mistakes",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2024-07-17T07:46:01.297Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "test simple post",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2024-07-17T07:52:14.990Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "simple post markdown",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2024-07-17T07:52:54.516Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "simple post markdown",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2024-07-17T08:36:31.150Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "myexample.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Domain name\", \"Display name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2024-07-17T08:37:04.896Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "example.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Domain name\", \"Display name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2024-07-17T08:39:52.501Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "localhost:8000",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Domain name\", \"Display name\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add post",
+    "content_type": 7,
+    "codename": "add_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change post",
+    "content_type": 7,
+    "codename": "change_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete post",
+    "content_type": 7,
+    "codename": "delete_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view post",
+    "content_type": 7,
+    "codename": "view_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add comment",
+    "content_type": 8,
+    "codename": "add_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change comment",
+    "content_type": 8,
+    "codename": "change_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete comment",
+    "content_type": 8,
+    "codename": "delete_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view comment",
+    "content_type": 8,
+    "codename": "view_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add tag",
+    "content_type": 9,
+    "codename": "add_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change tag",
+    "content_type": 9,
+    "codename": "change_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete tag",
+    "content_type": 9,
+    "codename": "delete_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view tag",
+    "content_type": 9,
+    "codename": "view_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add tagged item",
+    "content_type": 10,
+    "codename": "add_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change tagged item",
+    "content_type": 10,
+    "codename": "change_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete tagged item",
+    "content_type": 10,
+    "codename": "delete_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view tagged item",
+    "content_type": 10,
+    "codename": "view_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add site",
+    "content_type": 11,
+    "codename": "add_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change site",
+    "content_type": 11,
+    "codename": "change_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete site",
+    "content_type": 11,
+    "codename": "delete_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view site",
+    "content_type": 11,
+    "codename": "view_site"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$OPwMHhJqPmUtZELBZa0ran$KxbedVF4EBsqyqBDuQjAb9r7Xc7hLhgk1z4S9MW3JUg=",
+    "last_login": "2024-07-16T11:41:05.535Z",
+    "is_superuser": true,
+    "username": "bhoper",
+    "first_name": "",
+    "last_name": "",
+    "email": "pkuslin9@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-07-11T11:25:55.759Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$DFYjHfEE35VTfWMkW21O49$5o65htWbQ1N3mISi8Y3i5emf/CwF/t04ZCY/qDB7LDM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "sanchez",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-07-14T15:10:58.485Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "blog",
+    "model": "post"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "blog",
+    "model": "comment"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "taggit",
+    "model": "tag"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "taggit",
+    "model": "taggeditem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "sites",
+    "model": "site"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "410wxkmfw4rm5qcxsqcqgmtclm3il9dv",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCmVMK4dO8ZyMAMUjWQlHZlvLsh6UK3_7333yrQvpWwd1nDwuqiQJ1-t0jpKXUAflC9N51a3dYl6qHog3Z9ayyv6-H-HRTqZdTofYyYcSIwJD6im0w2yOxmQMs5nx0mztYLGeutUEwgs2cAAeey-nwB9oc4dA:1sRrzB:DxwYpSFVGLNnAbSoieeBVK5ht6Ozp0soHZIBirlTTA4",
+    "expire_date": "2024-07-25T11:29:17.517Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "631c6nzf5bqgxzn9dwbw3i56byuv5zeg",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAUBe_C2hCgwC8u3XsG8gofqZo2Ke3KeHdt0oVu38y8l4jY1hq3xkscszgLLU6_24D04GkH-Y7pNss0T-syDnJX5EGbvM6Zn5fD_TuoaPVbe-vLQNZwcsWXAK0oeQCFMxH11hK0oc5TcE6hV2Q7w4E9EWA0IN4f39Y3fw:1sTgYL:vWn9sJCOzcAaeR0BDxA479WpJ19vPAhwx7JC7EG6R_c",
+    "expire_date": "2024-07-30T11:41:05.542Z"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 3,
+  "fields": {
+    "title": "How we should solve this problem",
+    "slug": "how-we-should-solve-this-problem",
+    "body": "1. Неправильные параметры URL: Убедитесь, что параметры URL year, month, day и post переданы в правильном порядке и с корректными значениями. Проверьте, правильно ли они отображаются в конфигурации URL и в функции post_detail.\r\n\r\n2. Недействительный slug: Проверьте, действительно ли slug, используемый в URL, существует в базе данных. Возможно, был использован недействительный slug, что привело к ошибке 404 Not Found.\r\n\r\n3. Статус публикации: Убедитесь, что пост, который вы пытаетесь открыть, имеет статус \"Опубликовано\". В вашем коде вы используете фильтр status=Post.Status.PUBLISHED. Если пост имеет другой статус, он не будет найден.\r\n\r\n4. Неправильный вывод шаблона: Проверьте, правильно ли написан шаблон post_detail.html и корректно ли отображаются все необходимые переменные и поля.",
+    "publish": "2024-07-13T15:06:00Z",
+    "created": "2024-07-13T15:11:20.753Z",
+    "updated": "2024-07-13T15:11:20.753Z",
+    "status": "PB",
+    "author": 1
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 4,
+  "fields": {
+    "title": "Another problem is",
+    "slug": "another-problem-is",
+    "body": "1. Неправильные параметры URL: Убедитесь, что параметры URL year, month, day и post переданы в правильном порядке и с корректными значениями. Проверьте, правильно ли они отображаются в конфигурации URL и в функции post_detail.\r\n\r\n2. Недействительный slug: Проверьте, действительно ли slug, используемый в URL, существует в базе данных. Возможно, был использован недействительный slug, что привело к ошибке 404 Not Found.\r\n\r\n3. Статус публикации: Убедитесь, что пост, который вы пытаетесь открыть, имеет статус \"Опубликовано\". В вашем коде вы используете фильтр status=Post.Status.PUBLISHED. Если пост имеет другой статус, он не будет найден.\r\n\r\n4. Неправильный вывод шаблона: Проверьте, правильно ли написан шаблон post_detail.html и корректно ли отображаются все необходимые переменные и поля.",
+    "publish": "2023-07-13T15:06:00Z",
+    "created": "2024-07-13T15:11:46.020Z",
+    "updated": "2024-07-13T15:11:46.020Z",
+    "status": "PB",
+    "author": 1
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 5,
+  "fields": {
+    "title": "Many mistakes",
+    "slug": "many-mistakes",
+    "body": "1. Неправильные параметры URL: Убедитесь, что параметры URL year, month, day и post переданы в правильном порядке и с корректными значениями. Проверьте, правильно ли они отображаются в конфигурации URL и в функции post_detail.\r\n\r\n2. Недействительный slug: Проверьте, действительно ли slug, используемый в URL, существует в базе данных. Возможно, был использован недействительный slug, что привело к ошибке 404 Not Found.\r\n\r\n3. Статус публикации: Убедитесь, что пост, который вы пытаетесь открыть, имеет статус \"Опубликовано\". В вашем коде вы используете фильтр status=Post.Status.PUBLISHED. Если пост имеет другой статус, он не будет найден.\r\n\r\n4. Неправильный вывод шаблона: Проверьте, правильно ли написан шаблон post_detail.html и корректно ли отображаются все необходимые переменные и поля.",
+    "publish": "2024-05-12T13:06:00Z",
+    "created": "2024-07-13T15:12:09.195Z",
+    "updated": "2024-07-16T11:41:31.643Z",
+    "status": "PB",
+    "author": 1
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 6,
+  "fields": {
+    "title": "Super post",
+    "slug": "super-post",
+    "body": "1. Неправильные параметры URL: Убедитесь, что параметры URL year, month, day и post переданы в правильном порядке и с корректными значениями. Проверьте, правильно ли они отображаются в конфигурации URL и в функции post_detail.\r\n\r\n2. Недействительный slug: Проверьте, действительно ли slug, используемый в URL, существует в базе данных. Возможно, был использован недействительный slug, что привело к ошибке 404 Not Found.\r\n\r\n3. Статус публикации: Убедитесь, что пост, который вы пытаетесь открыть, имеет статус \"Опубликовано\". В вашем коде вы используете фильтр status=Post.Status.PUBLISHED. Если пост имеет другой статус, он не будет найден.\r\n\r\n4. Неправильный вывод шаблона: Проверьте, правильно ли написан шаблон post_detail.html и корректно ли отображаются все необходимые переменные и поля.",
+    "publish": "2021-07-13T18:48:26Z",
+    "created": "2024-07-13T18:49:15.857Z",
+    "updated": "2024-07-13T18:49:15.857Z",
+    "status": "PB",
+    "author": 1
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 7,
+  "fields": {
+    "title": "test simple post",
+    "slug": "test-simple-post",
+    "body": "This is a post formatted with markdown\r\n--------------------------------------\r\n*This is emphasized* and **this is more emphasized**.\r\nHere is a list:\r\n* One\r\n* Two\r\n* Three\r\nAnd a [link to the Django website](https://www.djangoproject.com/).",
+    "publish": "2024-07-17T07:44:51Z",
+    "created": "2024-07-17T07:46:01.288Z",
+    "updated": "2024-07-17T07:46:01.288Z",
+    "status": "PB",
+    "author": 1
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 8,
+  "fields": {
+    "title": "simple post markdown",
+    "slug": "simple-post-markdown",
+    "body": "This is a post formatted with markdown\r\n--------------------------------------\r\n*This is emphasized* and **this is more emphasized**.\r\n\r\nHere is a list:\r\n\r\n* One\r\n* Two\r\n* Three\r\n\r\nAnd a [link to the Django website](https://www.djangoproject.com/).",
+    "publish": "2024-07-17T07:44:51Z",
+    "created": "2024-07-17T07:52:14.981Z",
+    "updated": "2024-07-17T07:52:54.509Z",
+    "status": "PB",
+    "author": 1
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 1,
+  "fields": {
+    "post": 5,
+    "name": "Bhoper",
+    "email": "pkuslin9@gmail.com",
+    "body": "My own very good comment, i think yes!",
+    "created": "2024-07-14T14:11:44.742Z",
+    "updated": "2024-07-14T14:11:44.742Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 2,
+  "fields": {
+    "post": 3,
+    "name": "Bhoper",
+    "email": "pkuslin9@gmail.com",
+    "body": "I wrote a super comment!",
+    "created": "2024-07-14T15:09:48.889Z",
+    "updated": "2024-07-14T15:09:48.889Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 3,
+  "fields": {
+    "post": 3,
+    "name": "sanchez",
+    "email": "SuperIvan@gmail.com",
+    "body": "Owwww, it's amazing!",
+    "created": "2024-07-14T15:11:58.109Z",
+    "updated": "2024-07-14T15:11:58.109Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 4,
+  "fields": {
+    "post": 3,
+    "name": "Bhoper",
+    "email": "pkuslin9@gmail.com",
+    "body": "fsgnbjlsflgnbjlsfzlgbf s/bgfnzbg/",
+    "created": "2024-07-15T05:46:31.280Z",
+    "updated": "2024-07-15T05:46:31.280Z",
+    "active": true
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 1,
+  "fields": {
+    "name": "jazz",
+    "slug": "jazz"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 2,
+  "fields": {
+    "name": "music",
+    "slug": "music"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 3,
+  "fields": {
+    "name": "django",
+    "slug": "django"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 4,
+  "fields": {
+    "name": "markdown",
+    "slug": "markdown"
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 1,
+  "fields": {
+    "tag": 1,
+    "content_type": 7,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 2,
+  "fields": {
+    "tag": 2,
+    "content_type": 7,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 3,
+  "fields": {
+    "tag": 3,
+    "content_type": 7,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 4,
+  "fields": {
+    "tag": 1,
+    "content_type": 7,
+    "object_id": 5
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 5,
+  "fields": {
+    "tag": 2,
+    "content_type": 7,
+    "object_id": 5
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 6,
+  "fields": {
+    "tag": 1,
+    "content_type": 7,
+    "object_id": 7
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 7,
+  "fields": {
+    "tag": 4,
+    "content_type": 7,
+    "object_id": 8
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "domain": "localhost:8000",
+    "name": "localhost:8000"
+  }
+}
+]
