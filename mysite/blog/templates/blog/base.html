@@ -13,9 +13,10 @@
         <h1><a href="/">My Blog</a></h1>
         <nav>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="{% url 'blog:post_list' %}">Home</a></li>
+            <li><a href="{% url 'blog:about' %}">About</a></li>
             <li><a href="#">Contact</a></li>
+            <li><a href="{% url 'blog:post_search' %}">Search</a></li>
           </ul>
         </nav>
       </div>

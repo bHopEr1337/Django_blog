@@ -117,8 +117,8 @@ def post_search(request):
         form = SearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query']
-            search_vector = SearchVector('title', weight='A') + \
-                            SearchVector('body', weight='B')
+            search_vector = SearchVector('title', weight='A', config='russian') + \
+                            SearchVector('body', weight='B', config='russian')
             search_query = SearchQuery(query)
             results = Post.published.annotate(
                 search=search_vector,
@@ -133,3 +133,6 @@ def post_search(request):
 
 def greeting(request):
     return render(request, template_name='blog/post/greeting.html')
+
+def about(request):
+    return render(request, template_name='blog/post/about.html')
