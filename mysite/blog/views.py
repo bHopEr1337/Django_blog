@@ -129,3 +129,7 @@ def post_search(request):
                   {'form': form,
                    'query': query,
                    'results': results})
+
+
+def greeting(request):
+    return render(request, template_name='blog/post/greeting.html')
