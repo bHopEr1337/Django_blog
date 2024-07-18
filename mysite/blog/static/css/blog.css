@@ -1,15 +1,16 @@
-body { 
+
+body {
     margin:0;
     padding:0;
-    font-family:helvetica, sans-serif; 
+    font-family:helvetica, sans-serif;
 }
 
-a { 
+a {
     color:#00abff;
-    text-decoration:none; 
+    text-decoration:none;
 }
 
-h1 { 
+h1 {
     font-weight:normal;
     border-bottom:1px solid #bbb;
     padding:0 0 10px 0;
@@ -20,41 +21,41 @@ h2 {
     margin:30px 0 0;
 }
 
-#content { 
+#content {
     float:left;
     width:60%;
-    padding:0 0 0 30px; 
+    padding:0 0 0 30px;
 }
 
-#sidebar { 
+#sidebar {
     float:right;
     width:30%;
     padding:10px;
-    background:#efefef; 
+    background:#efefef;
     height:100%;
 }
 
-p.date { 
+p.date {
     color:#ccc;
     font-family: georgia, serif;
     font-size: 12px;
-    font-style: italic; 
+    font-style: italic;
 }
 
 /* pagination */
-.pagination { 
-    margin:40px 0; 
+.pagination {
+    margin:40px 0;
     font-weight:bold;
 }
 
 /* forms */
-label { 
+label {
     float:left;
     clear:both;
     color:#333;
-    margin-bottom:4px; 
+    margin-bottom:4px;
 }
-input, textarea { 
+input, textarea {
     clear:both;
     float:left;
     margin:0 0 10px;
@@ -69,13 +70,13 @@ input[type=submit] {
     color:#fff;
     padding:10px 20px;
     font-size:14px;
-    text-transform:uppercase; 
+    text-transform:uppercase;
 }
-.errorlist { 
+.errorlist {
     color:#cc0033;
     float:left;
     clear:both;
-    padding-left:10px; 
+    padding-left:10px;
 }
 
 /* comments */
@@ -90,3 +91,148 @@ input[type=submit] {
     font-size:12px;
     color:#666;
 }
+
+
+
+/* Стили для шапки */
+header {
+  background-color: #333;
+  padding: 20px 0;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+header h1 a {
+  color: #fff;
+}
+
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav li {
+  margin-left: 20px;
+}
+
+header nav a {
+  color: #fff;
+  font-size: 16px;
+}
+
+header nav a:hover {
+  color: #ccc;
+}
+
+
+
+/* Стили для постов */
+.post {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.post .tags {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.post .tags a {
+  color: #666;
+  text-decoration: none;
+}
+
+.post .tags a:hover {
+  color: #333;
+}
+
+.post .date {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.post .body {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+
+.post-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.share-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-top: none;
+}
+
+.similar-posts {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.comments {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.comment {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.info {
+  font-style: italic;
+  color: #666;
+}
+
+.comments {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.comment {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.comment:last-child {
+  border-bottom: none;
+}
+
+
+
+
