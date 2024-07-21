@@ -21,6 +21,10 @@ h2 {
     margin:30px 0 0;
 }
 
+
+
+
+
 #content {
     float:left;
     width:60%;
@@ -47,52 +51,6 @@ p.date {
     margin:40px 0;
     font-weight:bold;
 }
-
-/* forms */
-label {
-    float:left;
-    clear:both;
-    color:#333;
-    margin-bottom:4px;
-}
-input, textarea {
-    clear:both;
-    float:left;
-    margin:0 0 10px;
-    background:#ededed;
-    border:0;
-    padding:6px 10px;
-    font-size:12px;
-}
-input[type=submit] {
-    font-weight:bold;
-    background:#00abff;
-    color:#fff;
-    padding:10px 20px;
-    font-size:14px;
-    text-transform:uppercase;
-}
-.errorlist {
-    color:#cc0033;
-    float:left;
-    clear:both;
-    padding-left:10px;
-}
-
-/* comments */
-.comment {
-    padding:10px;
-}
-.comment:nth-child(even) {
-    background:#efefef;
-}
-.comment .info {
-    font-weight:bold;
-    font-size:12px;
-    color:#666;
-}
-
-
 
 /* Стили для шапки */
 header {
@@ -137,8 +95,6 @@ header nav a {
 header nav a:hover {
   color: #ccc;
 }
-
-
 
 /* Стили для постов */
 .post {

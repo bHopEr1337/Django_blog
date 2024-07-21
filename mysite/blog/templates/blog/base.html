@@ -5,6 +5,7 @@
 <head>
   <title>{% block title %}{% endblock %}</title>
   <link href="{% static "css/blog.css" %}" rel="stylesheet">
+  {% block css %}{% endblock %}
 </head>
 <body>
 
@@ -15,7 +16,7 @@
           <ul>
             <li><a href="{% url 'blog:post_list' %}">Home</a></li>
             <li><a href="{% url 'blog:about' %}">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{% url 'blog:contact' %}">Contact</a></li>
             <li><a href="{% url 'blog:post_search' %}">Search</a></li>
           </ul>
         </nav>

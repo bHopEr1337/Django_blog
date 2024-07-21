@@ -1,0 +1,559 @@
+СОЗДАНИЕ ВИРТУАЛЬНОГО ОКРУЖЕНИЯ.
+pyhton -m venv venv
+.\my_env\Scripts\activate
+deactivate - деактивация виртуальной среды.
+
+УСТАНОВКА И ПРОВЕРКА Django.
+pip install Django~=4.1.0
+python -m django --version
+
+В Django используется архитектура MTV (model-template-view),
+данная модель схожа с MVC (model-view-controller).
+
+СОЗДАНИЕ ПРОЕКТА.
+django-admin startproject name_of_project
+
+ЗАПУСК СЕРВЕРА.
+python manage.py runserver
+
+СОЗДАНИЕ ПРИЛОЖЕНИЯ.
+python manage.py startapp blog
+
+slug - человекопонятный url.
+
+РАБОТА С ORM ЧЕРЕЗ КОД.
+from blog.models import Post, User
+user = User.objects.get(username='bhoper')
+post = Post(title='Another post',
+	    slug='another-post',
+            body='Post body.',
+            author=user)
+post.save()
+
+Также объекты можно создавать с помощью create.
+Post.objects.create(title='',...)
+
+ORM объекты можно изменять, затем также сохраняем.
+post.title = 'New title'
+post.save()
+
+КАСТОМИЗАЦИЯ АДМИНА.
+В данный класс можно передать особые атрибуты, которые будут отвечать
+за функционал на сайте админа. (list_display, list_filter, search_fields,
+prepopulated_fields, raw_id_fields, date_fierarchy, ordering...)
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+	list_display = ['title', 'slug', 'author', 'publish', 'status']
+
+ВОЗМОЖНОСТИ QuerySet.
+Работаем через менеджер objects:
+Post.objects.filter(publish__year=2022)
+Post.objects.filter(publish__year=2022, author__username='admin')
+publish - конкретный столбец, через двойное подчёркивание доп аргумент:
+publish__year, publish__hour, publish__day...
+
+ИСПОЛЬЗОВАНИЕ .exclude(publish__day=....)
+obj = Post.objects.filter(publish__year=2024).exclude(publish__hour=14)
+
+ИСПОЛЬЗОВАНИЕ .order_by()
+obj = Post.objects.order_by('title')
+или в обратном порядке:
+obj = Post.objects.order_by('-title')
+
+УДАЛЕНИЕ ОБЪЕКТА .delete()
+post = Post.objects.get(id=1)
+post.delete()
+
+СОЗДАНИЕ СВОЕГО МЕНЕДЖЕРА.
+По умолчанию используется class.objects... - его можно переопределить,
+или создать новый. В models.py:
+
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset()\
+                        .filter(status=Post.Status.PUBLISHED)
+
+Возвращаем стандартный набор get_queryset() но с наложенными фильтрами.
+Внутри модели прописываем явно менеджеры, которые будут применяться к этой модели:
+
+objects = models.Manager()
+published = PublishedManager()
+
+Первый объявленый менеджер используется по умолчанию,
+остальные кастомные.
+
+ПОЛУЧЕНИЕ ОБЪЕКТА ИЗ МОДЕЛИ ИЛИ ВЫЗОВ ОШИБКИ.
+в views.py:
+
+from django.shortcuts import render, get_object_or_404
+def post_detail(request, id):
+    post = get_object_or_404(Post,
+                             id=id,
+                             status=Post.Status.PUBLISHED)
+    return render(request,
+              'blog/post/detail.html',
+              context={'post':post})
+В post мы получаем нужный объект из модели или, если его нет, вызываем error.
+
+ЗА ЧТО ОТВЕЧАЕТ ФУНКЦИЯ reverse(), динамически формирует url фдрес, но как???
+
+ДЛЯ УПРОЩЕНИЯ РАБОТЫ ПОИСКОВИКОВ НЕОБХОДИМЫ ДРУЖЕСТВЕННЫЕ URL
+В url.py создаём путь, который будет принимать аргументы - уникальные значения поста (год, месяц, день, slug):
+path('<int:year>/<int:month>/<int:day>/<slug:post>/',
+         views.post_detail,
+         name='post_detail'),
+
+В моделе теперь должен быть метод, который будет возвращать адрес из вышеупомянутых аргументов, дописываем метод:
+    def get_absolute_url(self):
+        return reverse('blog:post_detail',
+                       args=[self.publish.year,
+                             self.publish.month,
+                             self.publish.day,
+                             self.slug])
+
+ Теперь нужно изменить представление, оно будет принимать аргументы:
+def post_detail(request, year, month, day, post):
+    post = get_object_or_404(Post,
+                             status=Post.Status.PUBLISHED,
+                             slug=post,
+                             publish__year=year,
+                             publish__month=month,
+                             publish__day=day)
+    return render(request,
+                  'blog/post/detail.html',
+                  {'post': post})
+
+В шаблоне теперь используем путь: {{ post.get_absolute_url }}
+В чем идея? Теперь при формировании шаблона списка всех постов у нас будет автоматически создаваться url,
+состоящий из параметров поста (дата, слаг...). Нажав на ссылку, запрос перенаправляется в urls.py, где
+из него извлекаются аргументы. Аргменты передаются в контекст представления. Формируется шаблон конкретного поста
+с верными данными.
+
+СОЗДАНИЕ ФОРМЫ.
+
+from django import forms
+class EmailPostForm(forms.Form):
+	name = forms.CharField(max_length=25)
+	email = forms.EmailField()
+	to = forms.EmailField()
+ 	comments = forms.CharField(required=False,
+ 				   widget=forms.Textarea)
+Есть два класса форм: Form и ModelForm.
+widget отвечает за прорисовку. может быть например: textarea, input, checkbox...
+
+Пароль Google приложения - rbeo zabk ijep whee
+
+ОТПРАВКА EMAIL.
+В settings.py прописываем:
+
+# Конфигурация сервера электронной почты
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'pkuslin9@gmail.com'
+EMAIL_HOST_PASSWORD = 'rbeo zabk ijep whee'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+Пароль выдаёт гугл при создании пароля для приложения.
+Можно отправить через консоль:
+
+from django.core.mail import send_mail
+send_mail('Django mail',
+	'This e-mail was sent with Django.',	тема письма;
+	'your_account@gmail.com', 		от кого;
+	['your_account@gmail.com'],		кому;
+	fail_silently=False)			Вызывать ошибку, если письмо не отправилось.
+
+В views.py:
+def post_share(request, post_id):
+    post = get_object_or_404(Post,
+                             id=post_id,
+                             status=Post.Status.PUBLISHED)
+    sent = False
+
+    if request.method == 'POST':
+        form = EmailPostForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            post_url = request.build_absolute_uri(
+                post.get_absolute_url())
+            subject = f"{cd['name']} recommends you read " \
+                      f"{post.title}"
+            message = f"Read {post.title} at {post_url}\n\n" \
+                      f"{cd['name']}\'s comments: {cd['comments']}"
+            send_mail(subject, message, 'pkuslin9@gmail.com',
+                      [cd['to']])
+            sent = True
+    else:
+        form = EmailPostForm()
+    return render(request, 'blog/post/share.html', {'post':post,
+                                                    'form':form,
+                                                     'sent':sent})
+
+В urls.py:
+path('<int:post_id>/share/',
+	views.post_share, name='post_share')
+
+django.db.models содержит агрегатные функции:
+count;
+avg;
+max;
+min.
+
+В Pycharm можно создавать динамическую систему задач с помощью TODO.
+В файле оставляем такой комментарий.
+# TODO: Разобраться как это всё работает
+Теперь внизу слева во вкладке TODO будут отображаться все задачи.
+
+
+ПРИНЦИП РАБОТЫ ФУНКЦИИ reverse():
+Допустим, есть url
+urlpatterns = [
+    path('<int:year>/<int:month>/<int:day>/<slug:post>/',
+         views.post_detail,
+         name='post_detail'),
+]
+
+Мы хотим автоматически сгенерировать данный адрес, чтобы добавить его на html страницу.
+Импортируем нужный объект:
+obj = Post.objects.all()[0]
+затем в reverse указываем требуемый path из url и прописываем все аргументы:
+ url = reverse('blog:post_detail', args=[obj.publish.year, obj.publish.month, obj.publish.day, obj.slug])
+
+>>> '/blog/2024/7/13/how-we-should-solve-this-problem/'
+
+К части /blog/ крепится автоматически сгенерированный адрес.
+
+
+КАК РАБОТАЕТ АННОТАЦИЯ Post.published.annotate().
+Аннотация позволяет создать внутри вычисляемого запроса вспомогательные поля, которые будут
+временно храниться в момент выполнения запроса.
+
+objs.published.annotate(total_comments=Count('comments'))
+Внутри каждого поста временно создаётся поле с числом комментариев.
+Далее к такому запросу можно применить сортировку, чтобы вывести посты с наибольшим числом комментов.
+
+Post.published.annotate(
+        total_comments=Count('comments')
+    ).order_by('-total_comments')[:5]
+
+!!!Большинство задач можно решить с помощью шаблонных тегов, на них стоит уделить особое внимание!!!
+
+
+
+
+
+
+
+
+
+
+##########################################################################################
+Контекст можно использовать в шаблонах. Синтаксис отличается:
+{% for product in products %}
+  ....какой-то html....
+
+  {{product.name}} вызов по ключу через точку
+
+  ....какой-то html....
+{% endfor %}
+
+Создаёшь один шаблон, например карточку товара, загоняешь в цикл по n раз с контекстом.
+Одна структура для n карточек. Пример в products.
+
+Чтобы была динамическая подгрузка статики, например файлов html, и чтобы не прописывать явно все пути,
+необходимо использовать в начале html файла {% load static %}. Благодаря этому тегу можно получить
+относительный путь до папки static. Пример в html:
+
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+Таким образом мы делаем склеивание относительного пути static с интересующим нас файлом. Теперь даже если поменять
+название папки или файла, всё должно работат.
+
+Правила работы со статикой приведены на картинке на рабочем столе.
+
+Динамическая адресация.
+В файле urls.py есть название путей:
+path('products/', products, name='products'),
+
+Это название используется в тегах шаблона:
+<a class="navbar-brand" href="{% url 'products' %}">Store
+
+DRY Don't repeat yorself!
+Сравниваем файлы, ищем общее и различия. Создаём базовый файл (base) в том же каталоге, что и остальные.
+В base блоки с одинаковым кодом удаляем, вместо них пишем тэги:
+{% block content %} {% endblock %}
+{% block footer %} {% endblock %}
+Общие блоки не трогаем, например head, script и тд.
+В html файлах, откуда мы берём код в самой первой строке пишем: {% extends 'products/base.html' %},
+таким образом мы расширяем существующий базовый файл.
+Блоки кода, которые есть только в этом файле оборачиваем соответстующими тэгами:
+
+{% block css %}
+    <link href="{% static 'vendor/css/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <section>
+    ....
+    </section>
+{% endblock %}
+
+Всё остальное удаляем. Таким образом в файле остаются только уникальные кусочки, которые будут вставляться в base/
+
+МОДЕЛИ - таблицы в Jango.
+Главный класс, с которым мы работаем - это models. Из него мы наследуем свои классы/таблицы:
+Создаём произвольный класс и наследуем models.Model
+
+class ProductCategory(models.Model):
+	name = models.CharField(max_length=128, unique=True)
+	image = models.ImageField(upload_to='products_images')
+	category = models.ForeignKey(to=parent-class, on_delete=models.CASCADE)
+
+Все типы данных находятся в models. Смотри документацию. Есть универсальные параметры для всех типов данных:
+Например, default=...;
+Для картинок нужно оздавать отдельную папку?
+
+Миграция - перевод python классов в sql таблицы.
+После того, как в файле models будут созданы классы, необходимо создать миграции с помощью команды в терминале:
+python manage.py makemigrations
+или
+./manage.py makemigrations
+
+В файле migrations создалась наша миграция с каким-либо номером. Теперь данную миграцию надо принять.
+Вводим команду:
+python manage.py migrate
+
+Теперь в файле db.sqlite3 созданы таблицы, с которыми можно работать.
+
+Создавать объекты можно с помощью терминала или консоли. У меня работает только через терминал, если набрать
+python manage.py shell
+Создаём по стандартному объект как в ооп, в качестве аргументов передаём значения полей:
+newobj = ProductsCategory(name='...', description='...')
+Далее необходимо сохранить объект в бд:
+newobj.save()
+
+Для того, чтобы извлечать объект используем команду:
+category = ProductCategory.objects.get(id=1)
+
+objects - класс, выступающий в роли менеджера, с помощью которого можно получить доступ к другим классам?
+
+Чтобы по-дефолту получать какое-то название объекта, а не его номер, внутри класса необходимо прописать
+def __str__(self):
+	return...
+
+Методы QuerySet:
+create() создаёт объект из бд.
+get() возвращает объект из бд.
+all() возвращает список объектов из бд.
+filter() возвращает отфильтрованный список.
+
+ПОВТОРЕНИЕ. Для того, чтобы работать с объектами из консоли.
+Открываем терминал;
+Вводим python manage.py shell;
+Импортируем нужную модель: from products.models import ProductCategory;
+Применяем необходимую команду: ProductCategory.objects.all();
+
+СОЗДАНИЕ АДМИНА.
+В терминале пишем python manage.py createsuperuser;
+Вводим все необходимые данные.
+
+Чтобы созданные модели были видны в админ панели, необходимо их зарегистрировать в файле admin.py;
+В admin импортируем модели, затем пишем:
+
+from products.models import Product, ProductCategory
+admin.site.register(Product)
+admin.site.register(ProductCategory)
+
+Через внешний ключ можно обращаться к полям внешней таблицы:
+return f"Название: {self.name} | Категория: {self.category.name}"
+category - это внешний ключ, а category.name - поле другой таблицы
+
+После того, бд заполнена даннымы, необходимо изменить контроллер (views), он не должен хранить в себе медиафайлы.
+До этого ключу 'products' соответствовал рукописный список строк-объектов. Теперь же ключу соответсвуют импортированные
+orm объекты:
+
+def products(request):
+    return render(request, template_name='products/products.html', context={
+        'Title' : 'My own web',
+        'is_active' : True,
+        'products' : Product.objects.all(),
+        'categories' : ProductCategory.objects.all() - Импортированные категории.
+    })
+
+Всё должно работать также, как и с рукописным списком.
+
+Медиа (фото для товаров на карточках) должны храниться в отдельной папке:
+Создаём папку media в корневом проекте store;
+В settings необходимо прописать новый путь до media:
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'  ?Как это работает?
+Важный момент! Приведённый ниже код применим для локальной разработки. Почему это так работает, я не знаю??
+В urls.py дописываем:
+from django.conf.urls.static import static
+from django.conf import settings
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) Я не знаю, что это, но оно работает.
+
+После этого каким-то вошлшебным образом картинки будут загружаться из новой папки. В html в src надо прописать новый путь:
+{% for product in products %}
+	какой-то код
+	src="{{product.image.url}}"
+	какой-то код
+{% endfor %}
+
+ФИКСТУРЫ.
+Фикстура - dump(резервная копия) базы данных скорее всего в json формате.
+В терминале:
+python manage.py dumpdata products.ProductCategory > categories.json (Имя и формат файла)
+!!! Если возникают проблемы с русской кодировкой, следует использовать -o, вместо >!!!
+
+!!!!ВЫРАВНИВАНИЕ JSON В PYCHARM!!!!
+cntrl+alt+L
+
+Если удалили бд, используем дамп json для повторного заполнения.
+Создаём и выполняем миграции;
+python manage.py loaddata products/fixtures/goods.json
+!!!Могут быть проблемы с русской кодировкой. Сохраняем рабочий файл с русскими символами через
+блокнот в кодировке UTF-8.!!!
+
+
+Пространство имён url принято разбивать по приложениям.
+Меняем path в urls всего проекта:
+path('products/', include('products.urls', namespace='products')),
+импортируем include from django.urls import path, include;
+
+
+Внутри нашего приложения создаём файл urls:
+from django.urls import path
+from products.views import products
+
+app_name = 'products'
+
+urlpatterns = [
+    path('', products, name='index')
+]
+
+Теперь во всех html файлах, где была ссылка на приложение (url 'products') меняем на:
+url 'products:index';
+Указываем кокретную страницу нашего приложения из пространства имён.
+
+
+
+СЛЕДУЮЩИЙ ЭТАП.
+Создание приложения для авторизации.
+Создаём приложение users, для этого в терминале вводим:
+python manage.py startapp users;
+Регистрируем приложение в settings;
+Для пользователей нужна модель, её мы создавать с нуля не будем, возьмём за основу модель
+аутентификации. Для этого импортируем AbstractUser:
+from django.contrib.auth.models import AbstractUser;
+Наследуем готовую модель от AbstractUser:
+
+class User(AbstractUser):
+    image = models.ImageField(upload_to='users_images', null=True, blank=True)
+
+В settings прописываем:
+AUTH_USER_MODEL = 'users.User'
+Делаем миграцию.
+
+После создания модели, её необходимо зарегистрировать в admin:
+admin.site.register(User)
+
+В приложении создать папку templates;
+В templates создать папку с названием приложения;
+В этой папке сохранить html шаблоны, включая base;
+Создать контроллеры для шаблонов;
+Создать в приложении файл urls:
+
+from django.urls import path
+from users.views import login,register
+
+app_name = 'users'
+
+urlpatterns = [
+    path('login/', login, name='login'),
+    path('register/', register, name='register')
+]
+
+В store/urls.py в urlpatterns добавить:
+path('users/', include('users.urls', namespace='users   ')),
+В base ссылки на статику селать в таком формате:
+{% static 'vendor/css/auth.css' %}
+Все ссылки на файлы между собой приводим в порядок:
+Например в login.html {% url 'users:register' %}
+
+
+РАБОТА С ФОРМАМИ
+В приложении создаём forms.py;
+Импортируем класс с аутентификацией;
+from django.contrib.auth.forms import AuthenticationForm;
+Импортируем модель, с которой будет работать наша форма:
+from users.models import User
+
+Создаём класс:
+class UserLoginForm(AuthenticationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password']
+
+Вложенный класс Meta отвеает за связь нашей формы с таблицей, с которой надо будет работать;
+
+Далее необходимо загрузить форму в шаблон через контекст контроллера.
+Импортируем модель пользователей и форму в views:
+from users.models import User
+from users.forms import UserLoginForm
+
+Дописываем контроллер:
+def login(request):
+    context = {'form' : UserLoginForm()}
+    return render(request, template_name='users/login.html', context=context)
+
+Ниже строчка хз зачем.
+В html файле в блоке <form></form> прописываем тег {{ form.as_p }}. Обращаемся к ключу из контекста контроллера.
+
+--------------views.py----------------------
+from django.shortcuts import render, HttpResponseRedirect
+from django.contrib import auth
+from django.urls import reverse
+
+from users.models import User
+from users.forms import UserLoginForm
+
+
+def login(request):
+    if request.method == 'POST':
+        form = UserLoginForm(data=request.POST)
+        if form.is_valid():
+            username = request.POST['username']
+            password = request.POST['password']
+            user = auth.authenticate(username=username, password=password)
+            if user:
+                auth.login(request, user)
+                return HttpResponseRedirect(reverse('index'))
+    else:
+        form = UserLoginForm
+    context = {'form' : form}
+    return render(request, template_name='users/login.html', context=context)
+
+
+def register(request):
+    return render(request, template_name='users/register.html')
+
+
+------------------------------------------------------
+
+В login.html дописываем форму:
+<form action="{% url 'users:login' %}" method="post">
+	{{ form.as_p }}
+</form>
+------------------------------------------------------
+Краткий алгоритм работы с формами:
+1. Создаём форму в forms.py;
+2. Передаём форму в контекст контроллера;
+3. В html файле вызываем необходимое поле формы через тег вместо input. {{ form.username }}
+------------------------------------------------------
+
+ЛИЧНЫЙ КАБИНЕТ
+
+
+

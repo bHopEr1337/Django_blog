@@ -17,6 +17,7 @@ class Post(models.Model):
         PUBLISHED = 'PB', 'Published'
 
     title = models.CharField(max_length=250)
+    category = models.CharField(max_length=50, default="it")
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now())
@@ -70,3 +71,5 @@ class Comment(models.Model):
     ]
     def __str__(self):
         return f'Comment by {self.name} on {self.post}'
+
+
