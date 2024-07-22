@@ -29,7 +29,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+    'api.apps.ApiConfig',
+
     'blog.apps.BlogConfig',
+
     'taggit',
     'django.contrib.sites',
     'django.contrib.sitemaps',
@@ -104,12 +108,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -132,3 +135,10 @@ EMAIL_HOST_USER = 'pkuslin9@gmail.com'
 EMAIL_HOST_PASSWORD = 'rbeo zabk ijep whee'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+# REST API
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
