@@ -4,7 +4,7 @@ from django.views.decorators.http import require_POST
 
 from .servieces import __make_data_to_json_to_filter_posts, __get_detail_about_post, \
     __add_and_save_comment_from_CommentForm, find_posts_by_query, __do_post_share_logic
-from .models import Post
+from .models import Post, Products
 from .forms import EmailPostForm, SearchForm
 
 
@@ -79,3 +79,8 @@ def post_share(request, post_id):
     return render(request, 'blog/post/share.html', {'post':data['post'],
                                                                             'form':data['form'],
                                                                             'sent':data['sent']})
+
+
+def products(request):
+    products = Products.objects.all()
+    return render(request, 'blog/post/products.html', context={'products':products})

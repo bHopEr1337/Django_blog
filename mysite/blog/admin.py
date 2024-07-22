@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment, Products
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -16,4 +16,9 @@ class PostAdmin(admin.ModelAdmin):
   list_display = ['name', 'email', 'post', 'created', 'active']
   list_filter = ['active', 'created', 'updated']
   search_fields = ['name', 'email', 'body']
+
+
+  @admin.register(Products)
+  class ProductsAdmin(admin.ModelAdmin):
+   list_display = ['title', 'description', 'price']
 

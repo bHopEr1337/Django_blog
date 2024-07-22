@@ -21,5 +21,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contact/', views.send_feedback, name='contact'),
     path('filter/', views.filter_posts, name='filter_posts'),
+    path('products/', views.products, name='products'),
 
 ]

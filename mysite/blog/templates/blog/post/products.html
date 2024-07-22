@@ -1,0 +1,41 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}Products{% endblock %}
+
+{% block css %}
+<link href="{% static "css/products.css" %}" rel="stylesheet"></link>
+{% endblock %}
+
+{% block content %}
+<main>
+        <div class="product-container">
+    {% for product in products %}
+    <div class="product">
+        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+        <h3>{{ product.title }}</h3>
+        <p class="product_description">{{ product.description }}</p>
+        <div class="price-container">
+            <p class="price">{{ product.price }}руб</p>
+            <div class="country-dropdown">
+                <div class="country-button">
+                    <img src="{% static 'images/rus_0.jpeg' %}" alt="Russia">
+                </div>
+                <div class="country-list">
+                    <a href="#">Russia</a>
+                    <a href="#">USA</a>
+                    <a href="#">Germany</a>
+                    <!-- Добавьте другие страны по вашему желанию -->
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+    </main>
+<script>
+    var STATIC_URL = "{% static '' %}";
+</script>
+<script src="{% static 'js/products.js' %}"></script>
+{% endblock %}
