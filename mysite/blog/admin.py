@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Post, Comment, Products
+from .models import Post, Comment, Products, Test_products_for_rest
+
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -21,4 +22,9 @@ class PostAdmin(admin.ModelAdmin):
   @admin.register(Products)
   class ProductsAdmin(admin.ModelAdmin):
    list_display = ['title', 'description', 'price']
+
+
+   @admin.register(Test_products_for_rest)
+   class TestProductsAdmin(admin.ModelAdmin):
+    list_display = ['title', 'body']
 

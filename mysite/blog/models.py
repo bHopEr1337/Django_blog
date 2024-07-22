@@ -83,3 +83,8 @@ class Products(models.Model):
         return self.title
 
 
+class Test_products_for_rest(models.Model):
+    title = models.CharField(max_length=50)
+    body = models.TextField()
+
+
